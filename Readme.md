@@ -7,14 +7,17 @@ This is a Advanced Todo Application that has the fetures of Adding Todos and Add
 ![HTML/CSS](https://img.shields.io/badge/TechStack-NodeJS/Express/Mongoose/-yellow)
 
 The Job of this Application is 
-- User can add the todo
+- User can add the todo with priority
 - User can add specific the task
+- User can search todo by title
+- User can sort todo by priority
 - User can edit the todo
 - User can delete the todo
 
 And Also,
 - A Task can be editable
 - A Task can be deleted one by one
+- A Task can search based on title
 
 ---
 
@@ -66,15 +69,29 @@ Delete Todo
 ![](./screenshots/deleteTodo.png)
 
 ```
+Search Todo Based on Titile
+```
+![](./screenshots/searchTodo.png)
+
+```
+Sort Todo Based on Priority
+```
+![](./screenshots/sortTodo.png)
+
+```
 Add Task Of Specific Todo By Id
 ```
-![](./screenshots/addTask.png)
+![](./screenshots/createTask.png)
 
 ```
 Delete Task Of Specific Todo By Id 
 ```
-![](./screenshots/deletetask2.png)
+![](./screenshots/deleteTask.png)
 
+```
+Search Task Of Specific Title of Tasks 
+```
+![](./screenshots/searchTasks.png)
 
 
 ## Reach Me Out on

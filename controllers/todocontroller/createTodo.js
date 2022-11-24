@@ -7,10 +7,10 @@ const Todo = require("../../model/todoModel");
 
 exports.createTodo = async (req, res) => {
     try {
-        const { title } = req.body;
-        if (!(title)) {
-            res.status(406).send("Title Should not be Empty") // Postman
-            throw new Error(`Title Should not be Empty`)    // For VS Code
+        const { title, priority } = req.body;
+        if (!(title && priority)) {
+            res.status(406).send("Title and Priority Should not be Empty") // Postman
+            throw new Error(`Title And Priority Should not be Empty`)    // For VS Code
         }
         const todoTitle = await Todo.findOne({ title });
         if (todoTitle) {
@@ -18,8 +18,13 @@ exports.createTodo = async (req, res) => {
             throw new Error(`Todo Title Alredy Exits`)         // For VS Code
         }
 
+        if(priority > 4){
+            res.status(302).send("Keep Priority Between 1 To 4")   // Postman
+            throw new Error(`Keep Priority Between 1 To 4`)         // For VS Code
+        }
 
-        const newTodo = await Todo.create({ title })
+
+        const newTodo = await Todo.create({ title, priority })
         res.status(200).json({  newTodo, success: true, message: "Todo Created Successfully", })
     }
 

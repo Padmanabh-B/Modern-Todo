@@ -10,12 +10,24 @@ const TodoSchema = new Schema({
         trim: true,
         maxlength: [25, "Title must ne 25 ch Long"],
     },
+    priority:{
+        type:String,
+        enum:[1,2,3,4],
+        required:true,
+        default:"1",
+    },
     tasks: {
         type: [String],
         minlength: 3,
         maxlength: 255,
+        
     },
+    addedDate:{
+        type:Date,
+        default:Date.now(),
+    }
+   
 
-}, { timestamps: true });
+}, );
 
 module.exports = mongoose.model("Todo", TodoSchema)
