@@ -2,25 +2,23 @@ const Todo = require("../../model/todoModel")
 
 exports.sortTodo = async (req, res) => {
     try {
-        const priority = req.params.id;
-        const prior = await Todo.find({priority})
-        const sort = req.query.sort || priority;
+        const priority = req.params.priority;
+        const sort = req.query.sort || "priority";
 
-        
-        
 
-        const listTodos = await Todo.find({ priority: { $regex: sort, $options: "x" } })
-        .sort({priority:-1})
-           
+        const listTodos = await Todo.find({ priority: { $regex: sort, $options: "i" } })
+            
+
 
         const total = await Todo.countDocuments({
-            listTodos: { $regex: sort, $options: "x" },
+            priority: { $regex: sort, $options: "x" },
         });
 
         const response = {
             total,
-			priority
-		};
+            listTodos,
+            
+        };
 
         res.status(200).json(response);
 

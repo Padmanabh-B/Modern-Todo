@@ -9,7 +9,7 @@ exports.deleteTask= async (req, res) => {
          if (!todo) {
             return res.status(400).send('todo does not exist');
         }
-        todo.tasks.pop()
+        todo.tasks.splice(0,1)
         const deleted= await todo.save();
         res.status(200).json({ success: true, message: "Task Deleted Successfully", deleted })
 
